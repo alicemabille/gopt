@@ -7,3 +7,4 @@
 
 from .gopt import *
 from .baseline import *
+from .conformer_mb import *

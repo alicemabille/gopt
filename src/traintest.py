@@ -16,7 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(sys.path[0])))
 from models import *
 import argparse
 
-print("I am process %s, running on %s: starting (%s)" % (os.getpid(), os.uname()[1], time.asctime()))
+print("I am process %s, starting (%s)" % (os.getpid(), time.asctime()))
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("--exp-dir", type=str, default="./exp/", help="directory to dump experiments")
 parser.add_argument('--lr', '--learning-rate', default=1e-3, type=float, metavar='LR', help='initial learning rate')
