@@ -383,6 +383,9 @@ elif args.model == 'gopt_nophn':
 elif args.model == 'lstm':
     print('now train a baseline LSTM model')
     audio_mdl = BaselineLSTM(embed_dim=args.embed_dim, depth=args.goptdepth, input_dim=input_dim)
+elif args.model == 'gopc':
+    print('now train a GOPC model')
+    audio_mdl = GOPC(embed_dim=args.embed_dim, num_heads=args.goptheads, depth=args.goptdepth, input_dim=input_dim)
 
 tr_dataset = GoPDataset('train', am=am)
 tr_dataloader = DataLoader(tr_dataset, batch_size=args.batch_size, shuffle=True)

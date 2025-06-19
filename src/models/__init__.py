@@ -8,3 +8,4 @@
 from .gopt import *
 from .baseline import *
 from .conformer_mb import *
+from .gopc import *

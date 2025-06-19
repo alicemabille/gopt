@@ -20,7 +20,7 @@ depth=3
 head=1
 batch_size=25
 embed_dim=24
-model=gopt
+model=gopc
 am=librispeech
 
 exp_dir=../exp/gopt-${lr}-${depth}-${head}-${batch_size}-${embed_dim}-${model}-${am}-br

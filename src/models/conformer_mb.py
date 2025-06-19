@@ -59,15 +59,20 @@ class PositionalEncoding(nn.Module):
     
 
 class ConformerMB(nn.Module) :
-    def __init__(self) -> None:
+    def __init__(
+            self,
+            embed_dim:int = 512,
+            num_heads:int=1,
+            depth:int = 3,
+            input_dim:int = 84) :
         super().__init__()
         # Here I use the same layer and parameter names as the ConformerMB paper,
         # or when the name is missing, from the GOPT github repo
 
         # each phone has a GOP feature vector of dimension 84
-        self.feat_dim = 84
+        self.feat_dim = input_dim
         # dimension of the GOP and phoneme embeddings
-        self.embedding_dim = 512
+        self.embedding_dim = embed_dim
         # number of possible phonemes
         self.phn_num = 40
 
@@ -86,9 +91,9 @@ class ConformerMB(nn.Module) :
         
         # 
         self.conformer_encoder = Conformer(
-            input_dim=self.embedding_dim, 
-            num_heads=1,
-            num_layers=3,
+            input_dim=input_dim, 
+            num_heads=num_heads,
+            num_layers=depth,
             ffn_dim=self.embedding_dim,
             depthwise_conv_kernel_size=31
             )
